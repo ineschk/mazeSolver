@@ -62,8 +62,8 @@ button:hover {
 }
 
 .bg-red-500 {
-  background-color: #ff5733 !important; /* Final path */
-  color: white !important;
+  background-color: beige !important; /* Final path */
+  color: black !important;
 }
 
 .bg-green-500 {
