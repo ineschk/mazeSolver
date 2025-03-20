@@ -53,27 +53,39 @@ def bfs(maze, start, end):
     return None, expanded_nodes  # Return None if no path is found
 
 def dfs(maze, start, end):
-    stack = [(start, [])]
-    visited = set()
-    expanded_nodes = []
-    
+    stack = [start]  # Stack for DFS (LIFO)
+    visited = set()  # Track visited nodes
+    came_from = {}  # Store the path
+    expanded_nodes = []  # Track expanded nodes
+
     while stack:
-        (x, y), path = stack.pop()
-        
+        x, y = stack.pop()  # Pop from stack (LIFO order)
+
         if (x, y) in visited:
             continue
+
         visited.add((x, y))
         expanded_nodes.append((x, y))
-        
+
+        # Check if we reached the goal
         if (x, y) == end:
-            return path + [(x, y)], expanded_nodes
-        
-        for dx, dy in [(0,1), (1,0), (0,-1), (-1,0)]:
+            # Reconstruct the path
+            path = []
+            while (x, y) in came_from:
+                path.append((x, y))
+                x, y = came_from[(x, y)]
+            path.append(start)
+            return path[::-1], expanded_nodes  # Reverse to get correct order
+
+        # Explore neighbors in the order: Right, Down, Left, Up
+        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
             nx, ny = x + dx, y + dy
             if 0 <= nx < len(maze) and 0 <= ny < len(maze[0]) and maze[nx][ny] != '#' and (nx, ny) not in visited:
-                stack.append(((nx, ny), path + [(x, y)]))
-    
-    return None, expanded_nodes
+                stack.append((nx, ny))  # Add new node to stack
+                came_from[(nx, ny)] = (x, y)  # Store the path
+
+    return None, expanded_nodes  
+
 
 def a_star(maze, start, end):
     def heuristic(a, b):
@@ -119,7 +131,7 @@ def solve_dfs():
 @myapp.get("/solve/a_star")
 def solve_a_star():
     path, expanded = a_star(maze, start, end)
-    explanation = "A* uses heuristics to find the shortest path efficiently."
+    explanation = "A* uses heuristics function to find the shortest path efficiently .\n The huristic function used here is Manhattan distance   "
     return {"path": path, "expanded_nodes": expanded, "explanation": explanation}
 
 
