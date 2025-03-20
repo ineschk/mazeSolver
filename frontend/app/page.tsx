@@ -80,6 +80,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6">
       <h1 className="text-3xl font-bold mb-4">Maze Solver 🤖</h1>
+      <p className="text-lg font-semibold text-blue-400 italic">Created by Ines Chouaki</p>
       <p className="text-lg text-gray-400">Choose an algorithm to solve the maze:</p>
 
       <div className="mt-6 flex space-x-4">
