@@ -34,7 +34,7 @@ export default function Home() {
 
     try {
       console.log(`Fetching: http://127.0.0.1:8000/solve/${method}`);
-      const response = await fetch(`http://127.0.0.1:8000/solve/${method}`);
+      const response = await fetch(`https://maze-solver-jg9i.onrender.com/solve/${method}`);
       const data: Solution = await response.json();
       console.log("Fetched solution:", data);
       setSolution(data);
