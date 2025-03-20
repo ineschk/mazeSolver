@@ -35,7 +35,7 @@ export default function Home() {
     setRobotPosition(null);
 
     try {
-      const response = await fetch(`https://maze-solver-backend.onrender.com/solve/${method}`);
+      const response = await fetch(`https://maze-solver-jg9i.onrender.com/${method}`);
       const data: Solution = await response.json();
       setSolution(data);
       animateSearch(data.expanded_nodes, data.path);
