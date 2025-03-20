@@ -1,18 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --wall-color: #1e1e1e;
+  --expanded-color: #444;
+  --path-color: #ff5733;
+  --start-color: #27ae60;
+  --end-color: #2980b9;
 }
 
 body {
@@ -21,15 +16,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-  background-color: #f4f4f4;
-  font-family: Arial, sans-serif;
-}
-
 h1 {
-  color: #333;
+  color: #ddd;
 }
 
+/* Buttons */
 button {
   padding: 10px 15px;
   margin: 10px;
@@ -38,43 +29,24 @@ button {
   font-size: 16px;
   cursor: pointer;
   color: white;
+  transition: background 0.2s ease-in-out;
 }
 
 button:hover {
   opacity: 0.8;
 }
 
-.bg-black {
-  background-color: black;
-}
-
-.bg-gray-300 {
-  background-color: lightgray;  /* Expanded nodes */
-}
-
-.bg-gray-400 {
-  background-color: gray; /* More visible expanded nodes */
-}
-
-.bg-red-400 {
-  background-color: red; /* Final path */
-}
-
-.bg-green-500 {
-  background-color: green; /* Start position */
-}
-
-.bg-blue-500 {
-  background-color: blue; /* End position */
-}
-
+/* Maze Grid */
 .maze-container {
   display: grid;
   gap: 2px;
   padding: 10px;
-  background: #ddd;
+  background: #222; /* Dark background for maze */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* Maze Cells */
 .maze-cell {
   width: 30px;
   height: 30px;
@@ -82,7 +54,32 @@ button:hover {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   text-align: center;
 }
+
+/* Maze Elements */
+.bg-black {
+  background-color: var(--wall-color); /* Walls */
+}
+
+.bg-gray-400 {
+  background-color: var(--expanded-color); /* Expanded nodes */
+}
+
+.bg-red-500 {
+  background-color: var(--path-color); /* Final path */
+  color: white;
+}
+
+.bg-green-500 {
+  background-color: var(--start-color); /* Start position */
+  color: white;
+}
+
+.bg-blue-500 {
+  background-color: var(--end-color); /* End position */
+  color: white;
+}
+
 
