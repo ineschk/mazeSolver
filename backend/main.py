@@ -27,7 +27,7 @@ maze = [
 ]
 
 # Start and End positions
-start = (6, 0)  # Position of 'A'
+start = (7, 0)  # Position of 'A'
 end = (0, 11)   # Position of 'B'
 
 def bfs(maze, start, end):
