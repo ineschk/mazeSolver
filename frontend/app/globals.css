@@ -1,23 +1,18 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --wall-color: #1e1e1e;
-  --expanded-color: #444;
-  --path-color: #ff5733;
-  --start-color: #27ae60;
-  --end-color: #2980b9;
+html {
+  background: #0a0a0a !important;
+  color: #ededed !important;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #0a0a0a !important;
+  color: #ededed !important;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  color: #ddd;
+  color: #ddd !important;
 }
 
 /* Buttons */
@@ -29,19 +24,18 @@ button {
   font-size: 16px;
   cursor: pointer;
   color: white;
+  background: #333;
   transition: background 0.2s ease-in-out;
 }
 
 button:hover {
-  opacity: 0.8;
+  background: #444;
+  opacity: 0.9;
 }
 
 /* Maze Grid */
 .maze-container {
-  display: grid;
-  gap: 2px;
-  padding: 10px;
-  background: #222; /* Dark background for maze */
+  background: #222 !important;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
@@ -60,26 +54,24 @@ button:hover {
 
 /* Maze Elements */
 .bg-black {
-  background-color: var(--wall-color); /* Walls */
+  background-color: #1e1e1e !important; /* Walls */
 }
 
 .bg-gray-400 {
-  background-color: var(--expanded-color); /* Expanded nodes */
+  background-color: #444 !important; /* Expanded nodes */
 }
 
 .bg-red-500 {
-  background-color: var(--path-color); /* Final path */
-  color: white;
+  background-color: #ff5733 !important; /* Final path */
+  color: white !important;
 }
 
 .bg-green-500 {
-  background-color: var(--start-color); /* Start position */
-  color: white;
+  background-color: #27ae60 !important; /* Start position */
+  color: white !important;
 }
 
 .bg-blue-500 {
-  background-color: var(--end-color); /* End position */
-  color: white;
+  background-color: #2980b9 !important; /* End position */
+  color: white !important;
 }
-
-
