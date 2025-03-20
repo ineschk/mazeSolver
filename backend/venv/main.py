@@ -123,3 +123,9 @@ def solve_a_star():
     return {"path": path, "expanded_nodes": expanded, "explanation": explanation}
 
 
+import os
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))  # Render uses dynamic ports
+    uvicorn.run(myapp, host="0.0.0.0", port=port)
